@@ -1,0 +1,178 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <time.h>
+int main()
+{
+int array[3][3];
+int i,j;
+int playeri;
+int playerj;
+//int oplayeri;
+//int oplayerj;
+
+//clearing array
+for(i = 0;i<3;i++){
+    for(j = 0;j<3;j++){
+        array[i][j]=NULL;
+        //printf("array[%d][%d] and value: %d \n",i,j,array[i][j]);
+    }
+}//array cleared
+
+for(i=0; i<6; i++)
+//9 positions to choose from
+// x player
+{
+    srand(time(NULL));
+    playeri = rand()%3;
+    playerj = rand()%3;
+   if(array[playeri][playerj]==NULL)
+    {
+        array[playeri][playerj]=1;
+        //printf("%d \n", xplayeri);
+        //printf("%d \n", xplayerj);
+        //printf("if case x \n");
+    }
+   else if(array[playeri][playerj]!=NULL)
+   {
+       while(array[playeri][playerj]!=NULL)
+       {
+           playeri = rand()%3;
+           playerj = rand()%3;
+           //printf("inside while loop x \n");
+       }
+       array[playeri][playerj]=1;
+       //printf("%d \n", xplayeri);
+       //printf("%d \n", xplayerj);
+       //printf("else if case x  \n");
+   }
+   
+   
+   
+   //printing UI X///////////////////
+   for(i = 0;i<3;i++){
+    for(j = 0;j<3;j++){
+        if(j==2)
+        {
+            if(array[i][j]==NULL)
+        {
+            printf("_\n");
+        }
+        else if(array[i][j]==1)
+        {
+            printf("X\n");
+        }
+        else if(array[i][j]==2)
+        {
+            printf("O\n");
+        }
+        }
+        else
+        {
+            if(array[i][j]==NULL)
+        {
+            printf("_");
+        }
+        else if(array[i][j]==1)
+        {
+            printf("X");
+        }
+        else if(array[i][j]==2)
+        {
+            printf("O");
+        }
+        }
+        //printf("array[%d][%d] and value: %d \n",i,j,array[i][j]); //shows values of indexes
+    }
+
+       
+   }//end UI//////////////////////////
+   
+printf("\n");
+   
+   
+   
+   
+   
+   //full table
+   if (i==4)
+   { break;
+   }// full table
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     //O player
+     
+    srand(time(NULL));
+    playeri = rand()%3;
+    playerj = rand()%3;
+   if(array[playeri][playerj]==NULL)
+    {
+        array[playeri][playerj]=2;
+        //printf("%d \n", playeri);
+        //printf("%d \n", playerj);
+        //printf("if case o  \n");
+    }
+   else if(array[playeri][playerj]!=NULL)
+   {
+       while(array[playeri][playerj]!=NULL)
+       {
+           playeri = rand()%3;
+           playerj = rand()%3;
+           //printf("inside while loop o \n");
+       }
+       array[playeri][playerj]=2;
+       //printf("%d \n", oplayeri);
+       //printf("%d \n", oplayerj);
+       //printf("else if case o  \n"); 
+   } 
+   
+   //////////////////////
+   //printing UI  O
+   for(i = 0;i<3;i++){
+    for(j = 0;j<3;j++){
+        if(j==2)
+        {
+            if(array[i][j]==NULL)
+        {
+            printf("_\n");
+        }
+        else if(array[i][j]==1)
+        {
+            printf("X\n");
+        }
+        else if(array[i][j]==2)
+        {
+            printf("O\n");
+        }
+        }
+        else
+        {
+            if(array[i][j]==NULL)
+        {
+            printf("_");
+        }
+        else if(array[i][j]==1)
+        {
+            printf("X");
+        }
+        else if(array[i][j]==2)
+        {
+            printf("O");
+        }
+        }
+//printf("array[%d][%d] and value: %d \n",i,j,array[i][j]); //shows values of indexes
+    }
+   }//end UI///////////////////////////
+   printf("\n");
+} //end for loop
+    return 0;
+}
